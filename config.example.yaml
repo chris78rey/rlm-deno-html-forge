@@ -1,0 +1,78 @@
+paths:
+  input_dir: "./input_html"
+  output_dir: "./output_html"
+  reports_dir: "./reports"
+  work_dir: "./.work"
+
+theme:
+  new_theme: "Adquisición de insumos de impresora"
+  language: "español"
+  tone: "institucional, claro, profesional y fácil de entender"
+  audience: "usuarios administrativos, técnicos y de compras"
+  extra_context: >
+    El contenido debe redactarse completamente en español, con tildes correctas,
+    sin texto en inglés, sin símbolos extraños y sin entidades HTML innecesarias
+    en los textos visibles.
+  context_file: "./context/tema.md"
+
+model:
+  provider: "openrouter"
+  model: "minimax/minimax-m2.7"
+  endpoint: "https://openrouter.ai/api/v1/chat/completions"
+  api_key_env: "OPENROUTER_API_KEY"
+  temperature: 0.20
+  timeout_seconds: 120
+  max_retries: 2
+  http_referer: "http://localhost"
+  x_title: "RLM Deno HTML Forge"
+
+rlm:
+  max_depth: 3
+  max_calls_per_subagent: 200
+  max_total_calls: 300
+  max_money_spent: 2.00
+  max_repair_attempts: 3
+  max_same_error_repetitions: 2
+  max_seconds_per_phase: 900
+  concurrency: 6
+  batch_size: 35
+  input_cost_per_1m_tokens: 0.0
+  output_cost_per_1m_tokens: 0.0
+
+sandbox:
+  deno_bin: "deno"
+  runner_ts: "./deno/pyodide_runner.ts"
+  cached_only: true
+  no_prompt: true
+  deny_net: true
+  allow_read:
+    - "./input_html"
+    - "./deno"
+    - "./.work"
+
+html:
+  extensions:
+    - ".html"
+    - ".htm"
+  copy_non_html_assets: true
+  min_text_length: 8
+  max_text_length: 1500
+  force_utf8_output: true
+  skip_tags:
+    - "script"
+    - "style"
+    - "noscript"
+    - "code"
+    - "pre"
+    - "svg"
+    - "canvas"
+    - "iframe"
+  skip_text_regex:
+    - "^\\s*$"
+    - "^https?://"
+    - "^mailto:"
+    - "^tel:"
+    - "^#"
+    - "^\\d+$"
+    - "^[_\\-–—•·]+$"
+    - "^[A-ZÁÉÍÓÚÑ]{1,3}$"

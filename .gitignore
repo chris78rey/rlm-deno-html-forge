@@ -1,0 +1,32 @@
+# Entorno local
+.venv/
+__pycache__/
+*.pyc
+
+# Secretos
+.env
+.env.*
+!.env.example
+
+# Configuración local
+config.yaml
+
+# Datos reales / privados
+input_html/*
+!input_html/.gitkeep
+output_html/*
+!output_html/.gitkeep
+reports/*
+!reports/.gitkeep
+.work/*
+!.work/.gitkeep
+
+# Contexto real del proyecto
+context/tema.md
+!context/tema.example.md
+
+# Archivos temporales
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
