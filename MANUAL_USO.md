@@ -153,23 +153,142 @@ Los archivos procesados aparecerán en:
 
 ---
 
-## 📝 Ejemplos Prácticos
+## 📝 Ejemplo Completo Paso a Paso
 
-### Ejemplo 1: Procesar un solo documento
+### 🎯 Escenario: Procesar un documento HTML
+
+Vamos a transformar un documento HTML existente aplicándole un nuevo tema profesional.
+
+---
+
+#### PASO 1: Colocar tu HTML en la carpeta
 
 ```powershell
-# 1. Copiar ejemplo a input_html/
-copy examples\documento_ejemplo.html input_html\
+# Windows: copiar tu archivo HTML a input_html/
+copy "C:\tu\carpeta\documento.html" input_html\
+```
 
-# 2. Configurar
-echo "theme:
-  new_theme: 'Diseño para presentación ejecutiva'" > config.yaml
+```bash
+# Linux/Mac: copiar tu archivo HTML a input_html/
+cp ~/mi_documento.html input_html/
+```
 
-# 3. Ejecutar
+**Resultado en tu carpeta:**
+```
+input_html/
+├── documento.html      # ← Tu archivo original
+└── .gitkeep
+```
+
+---
+
+#### PASO 2: Crear el archivo de configuración
+
+Crea o edita el archivo `config.yaml` en la raíz del proyecto:
+
+```powershell
+# Windows: crear archivo config.yaml
+notepad config.yaml
+```
+
+```bash
+# Linux/Mac: crear archivo config.yaml
+nano config.yaml
+```
+
+**Contenido del archivo (copia y pega esto):**
+
+```yaml
+theme:
+  new_theme: "Diseño corporativo profesional"
+  style: "corporate"
+```
+
+---
+
+#### PASO 3: Ejecutar el procesamiento
+
+Este es el **comando principal** que ejecuta todo el sistema:
+
+```powershell
+# Windows PowerShell
+cd rlm_deno_html_forge
+.venv\Scripts\activate
 python -m rlm_html_forge.main --config config.yaml
 ```
 
-### Ejemplo 2: Procesar múltiples documentos
+```bash
+# Linux/Mac
+cd rlm_deno_html_forge
+source .venv/bin/activate
+python -m rlm_html_forge.main --config config.yaml
+```
+
+---
+
+#### PASO 4: Ver los resultados
+
+Después de ejecutar, revisa:
+
+```powershell
+# Ver carpeta de salida
+dir output_html\
+
+# Ver reportes
+dir reports\
+```
+
+```bash
+# Ver carpeta de salida
+ls output_html/
+
+# Ver reportes
+ls reports/
+```
+
+**Archivos generados:**
+```
+output_html/
+├── documento.html          # ← Tu documento transformado ✅
+└── .gitkeep
+
+reports/
+├── report.html            # ← Reporte visual
+├── report.json            # ← Datos estructurados
+└── report.md              # ← Reporte en markdown
+```
+
+---
+
+### 📋 Resumen del Comando Principal
+
+```bash
+python -m rlm_html_forge.main --config config.yaml
+```
+
+**¿Qué hace este comando?**
+- Lee todos los HTML de `input_html/`
+- Aplica la temática de `config.yaml`
+- Transforma cada documento usando IA
+- Guarda resultados en `output_html/`
+- Genera reportes en `reports/`
+
+---
+
+## ⚡ Ejemplo Rápido (En 3 pasos)
+
+Si ya tienes todo configurado, este es el flujo más corto:
+
+```powershell
+# 1. Asegúrate de que tu HTML esté en input_html/
+# 2. Ejecuta este comando:
+python -m rlm_html_forge.main --config config.yaml
+# 3. ¡Listo! Revisa output_html/ para ver el resultado
+```
+
+---
+
+## 📝 Ejemplos Adicionales
 
 Si tienes varios HTML en `input_html/`, todos se procesarán automáticamente:
 
@@ -362,6 +481,41 @@ Si tienes problemas:
 1. Revisa el `README.md` para información técnica
 2. Verifica la estructura en `README_GITHUB_PUBLICO.md`
 3. Revisa los reportes generados en `reports/`
+
+---
+
+## 📋 Comandos Rápidos de Referencia
+
+### Instalación y Configuración
+
+| Comando | Descripción |
+|---------|-------------|
+| `git clone https://github.com/chris78rey/rlm-deno-html-forge.git` | Clonar repositorio |
+| `python -m venv .venv` | Crear entorno virtual |
+| `.venv\Scripts\activate` (Windows) | Activar entorno |
+| `source .venv/bin/activate` (Linux/Mac) | Activar entorno |
+| `pip install -r requirements.txt` | Instalar dependencias |
+| `copy .env.example .env` (Windows) | Crear archivo .env |
+| `cp .env.example .env` (Linux/Mac) | Crear archivo .env |
+| `deno cache deno/pyodide_runner.ts` | Preparar caché Deno |
+
+### Uso Diario
+
+| Comando | Descripción |
+|---------|-------------|
+| `python -m rlm_html_forge.main --config config.yaml` | **Ejecutar procesamiento principal** |
+| `ls input_html/` | Ver documentos a procesar |
+| `ls output_html/` | Ver resultados |
+| `ls reports/` | Ver reportes |
+
+### Mantenimiento
+
+| Comando | Descripción |
+|---------|-------------|
+| `git status` | Ver estado del repositorio |
+| `git add .` | Agregar todos los cambios |
+| `git commit -m "mensaje"` | Hacer commit |
+| `git push` | Subir cambios a GitHub |
 
 ---
 
