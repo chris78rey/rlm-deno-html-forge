@@ -1,0 +1,8 @@
+# Configuración para documentos corporativos/profesionales
+theme:
+  new_theme: "Diseño corporativo profesional"
+  style: "corporate"
+
+processing:
+  max_retries: 3
+  timeout: 300

@@ -1,0 +1,8 @@
+# Configuración para documentos modernos/minimalistas
+theme:
+  new_theme: "Diseño moderno y minimalista"
+  style: "modern"
+
+processing:
+  max_retries: 3
+  timeout: 300

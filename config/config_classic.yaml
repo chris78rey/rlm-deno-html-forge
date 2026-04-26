@@ -1,0 +1,8 @@
+# Configuración para documentos clásicos/elegantes
+theme:
+  new_theme: "Diseño clásico elegante"
+  style: "classic"
+
+processing:
+  max_retries: 3
+  timeout: 300
