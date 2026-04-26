@@ -11,32 +11,12 @@ description: Infraestructura híbrida Python/Deno para procesamiento de HTML con
 
 ## ¿Qué Hace Este Proyecto?
 
-Transforma documentos HTML usando inteligencia artificial, pero **sin exponer el HTML completo**:
+Transforma documentos HTML usando inteligencia artificial:
 
 - ✅ Extrae solo texto del HTML localmente
-- ✅ Envía texto a la IA (OpenRouter) para transformación
+- ✅ Envía texto a la IA para transformación
 - ✅ Aplica cambios manteniendo la estructura original
 - ✅ Genera reportes de procesamiento
-
-**Resultado:** HTML con nueva temática manteniendo la estructura original.
-
----
-
-## Arquitectura
-
-```
-┌─────────────┐     ┌──────────────┐     ┌─────────────┐
-│ INPUT_HTML/ │ ──▶ │ Procesamiento│ ──▶ │ OUTPUT_HTML/│
-│  (HTML orig)│     │ AI + Local   │     │ (HTML trans)│
-└─────────────┘     │ Python+Deno  │     └─────────────┘
-                    └──────────────┘
-```
-
-**Tecnologías:**
-- Python 3.11+ (Orquestador)
-- Deno 2.x (Sandbox de seguridad)
-- Pyodide (Python en WASM)
-- OpenRouter (IA)
 
 ---
 
@@ -61,24 +41,11 @@ python -m rlm_html_forge.main --config config.yaml
 
 - ✅ HTML nunca sale de tu máquina
 - ✅ Solo se envía texto a la IA (fragmentos)
-- ✅ Deno con permisos mínimos (`--deny-net`)
+- ✅ Deno con permisos mínimos
 - ✅ Límites de costos configurables
-
----
-
-## Skills Disponibles
-
-| Skill | Descripción |
-|-------|-------------|
-| `rlm-usar-proyecto` | Ejecutar el procesamiento |
-| `rlm-entender-arquitectura` | Entender cómo funciona |
-| `rlm-modificar-modelo` | Cambiar modelo de IA |
-| `rlm-corregir-errores` | Solucionar problemas |
-| `rlm-publicar-github` | Publicar en GitHub |
 
 ---
 
 **Documentación completa:**
 - `MANUAL_USO.md` - Guía de usuario
 - `docs/00_MEMORIA_DEL_PROYECTO.md` - Mapa mental
-- `AGENTS.md` - Guía para agentes de IA

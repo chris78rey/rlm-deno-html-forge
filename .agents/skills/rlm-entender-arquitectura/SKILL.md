@@ -52,16 +52,4 @@ output_html/ + reports/
 
 ---
 
-## Archivos Principales
-
-```
-src/rlm_html_forge/
-├── main.py              # Punto de entrada
-├── orchestrator.py      # Orquestador
-├── deno_sandbox.py      # Sandbox Deno
-└── openrouter_client.py # Cliente IA
-```
-
----
-
 **Documentación completa:** `docs/00_MEMORIA_DEL_PROYECTO.md`

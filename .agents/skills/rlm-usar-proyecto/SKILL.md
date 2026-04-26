@@ -53,20 +53,4 @@ reports/      → Reportes de procesamiento
 
 ---
 
-## Verificación
-
-```bash
-# Verificar instalación
-python --version      # Python 3.11+
-deno --version        # Deno 2.x
-
-# Verificar configuración
-cat config.yaml
-
-# Verificar documentos
-ls input_html/
-```
-
----
-
 **Documentación completa:** `MANUAL_USO.md`

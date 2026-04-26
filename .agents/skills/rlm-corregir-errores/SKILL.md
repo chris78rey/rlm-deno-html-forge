@@ -36,44 +36,18 @@ cp .env.example .env
 deno cache deno/pyodide_runner.ts
 ```
 
-### 4. No hay archivos en output_html/
-
-```bash
-# Verificar input
-ls input_html/
-
-# Debe haber archivos .html o .htm
-```
-
-### 5. Modelo tarda mucho
+### 4. Modelo tarda mucho
 
 ```yaml
-# Aumentar concurrencia en config.yaml
 rlm:
   concurrency: 8
 ```
 
-### 6. Rate limit de OpenRouter
+### 5. Rate limit de OpenRouter
 
 ```yaml
-# Reducir concurrencia en config.yaml
 rlm:
   concurrency: 3
-```
-
----
-
-## Flujo de Diagnóstico
-
-```
-1. ¿Error al iniciar?
-   └─ Verificar Python, Deno, dependencias
-
-2. ¿Error durante procesamiento?
-   └─ Revisar reports/report.md
-
-3. ¿Sin archivos en output?
-   └─ Verificar input_html/ y config.yaml
 ```
 
 ---
@@ -81,10 +55,7 @@ rlm:
 ## Verificar Logs
 
 ```bash
-# Ver reporte de errores
 cat reports/report.md
-
-# Ver reporte estructurado
 cat reports/report.json
 ```
 
